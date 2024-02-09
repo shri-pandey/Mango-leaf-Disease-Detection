@@ -203,12 +203,12 @@ function Body() {
                 Leaf should be single/differentiable from the background
               </figcaption>
             </figure>
-            <div className="iframe">
+            {/* <div className="iframe">
             <iframe
               title="YT link"
               src="https://youtube.com/embed/bieZ8k_s204"></iframe>
               <p className="figcaption">Watch the video for detailed instructions</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

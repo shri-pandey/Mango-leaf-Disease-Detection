@@ -37,6 +37,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/upload-image' element={<Body />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
       </div>
       {/* <Footer /> */}
@@ -49,3 +50,5 @@ function App() {
 }
 
 export default App;
+
+// aetghet
