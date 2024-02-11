@@ -138,6 +138,7 @@ function Body() {
       animate="visible"
       exit="exit"
     >
+      <div>
       <div className="body-left">
         <div className="leftbody">
           <h1>Upload your file</h1>
@@ -203,6 +204,12 @@ function Body() {
                 Leaf should be single/differentiable from the background
               </figcaption>
             </figure>
+            <figure className="demo-fig">
+              <img className="demo-img" src={demo1} alt="visibility" />
+              <figcaption>
+                Affected part of the leaf should be visible
+              </figcaption>
+            </figure>
             {/* <div className="iframe">
             <iframe
               title="YT link"
@@ -235,6 +242,7 @@ function Body() {
             }
           </div>
         )}
+      </div>
       </div>
     </motion.div>
   );

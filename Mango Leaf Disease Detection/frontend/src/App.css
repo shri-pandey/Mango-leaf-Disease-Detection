@@ -8,9 +8,13 @@
 }
 main{
   background-color: var(--bg);
+  overflow: hidden;
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 html {
   scroll-behavior: smooth;
+  
 }
 :root{
   --navbg1: #d4d4d4;
