@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css'
 import Navbar from './Components/Navbar/Navbar';
 import Body from './Components/Body/Body';
@@ -10,6 +10,7 @@ import Contact from './Components/Contact/Contact';
 import Footer from "./Components/footer/Footer"
 import useLocalStorage from 'use-local-storage';
 import { drawerContext } from './Components/Context/Drawer';
+import LocationPermission from './Components/LocationPicker/LocationPermission';
 // import { useState } from 'react';
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
   const { leftmenu } = React.useContext(drawerContext);
   const location = useLocation();
   const [theme , setTheme] = useLocalStorage("dark");
+  const [permission, setPermission] = useState(null);
+
+
   const change = (bool) =>{
     if(bool === true){
     setTheme("light");
@@ -25,25 +29,43 @@ function App() {
       setTheme("dark");
     }
   }
+
+
+   // Handler function to update permission state
+   const handlePermissionChange = (newPermission) => {
+    setPermission(newPermission);
+  };
+
+  useEffect(() => {
+    // Your logic here to re-render the page whenever permission changes
+    console.log("Permission changed:", permission);
+  }, [permission]);
+
   return (
     // <BrowserRouter>
-    // eslint-disable-next-line react/no-unknown-property
-    <main theme={theme} >
-    <AnimatePresence>
-      <Navbar change={change}/>
-      <ScrolTop />
-      <div className={leftmenu && "light-bg"}>
-        <Routes location={location} key={location.key}>
-          <Route path='/' element={<Home />} />
-          <Route path='/upload-image' element={<Body />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/contact' element={<Contact />} />
-        </Routes>
-      </div>
-      {/* <Footer /> */}
-      <ScrolTop />
-      <Footer />
-    </AnimatePresence>
+    // eslint-disable-next-line react/no-unknown-property || organised component logically and grouped related files together
+  <main theme={theme} >
+      <AnimatePresence>
+        <Navbar change={change} />
+        {/* Render LocationPermission if permission is not granted */}
+        {permission === null  && <LocationPermission onPermissionChange={handlePermissionChange} />}
+        {/* Render other components only when permission is granted */}
+        {(permission === 'granted' || permission === 'denied') && (
+          <>
+          
+            <div className={leftmenu && "light-bg"}>
+              <Routes location={location} key={location.key}>
+                <Route path='/' element={<Home/>} />
+                <Route path='/upload-image' element={<Body />} />
+                <Route path='/contact' element={<Contact />} />
+              </Routes>
+              
+            </div>
+           
+          </>
+        )}
+        <Footer />
+      </AnimatePresence>
     </main>
     // </BrowserRouter>
   )

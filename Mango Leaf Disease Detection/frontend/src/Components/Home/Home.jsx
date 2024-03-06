@@ -7,8 +7,16 @@ import stat3 from "../../images/stat3.jpg";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import {Trans, useTranslation} from "react-i18next";
 
 function Home() {
+
+
+  const {t} = useTranslation();
+  const {line1, line2} = t("description", {channel: "chanel1"});
+
+
+
   useEffect(() => {
     Aos.init({ duration: 1200 });
   }, []);
@@ -40,20 +48,13 @@ function Home() {
     >
       <div className="home-info">
         <h1 id="simple_arc" className="textomimage">
-          GET THE CURE ...
+           <p>{t("greeting")}</p>
         </h1>
         <p className="textomimage2">
-          Welcome to our innovative agricultural website! We are revolutionizing
-          the way farmers and agricultural professionals diagnose plant diseases
-          by utilizing the power of machine learning. Our advanced ML model can
-          detect the disease present in plants with just the image of an
-          infected leaf, making it easier and faster for you to identify and
-          treat the problem. With our technology, we aim to improve crop health
-          and increase yields, ultimately contributing to a more sustainable and
-          prosperous agricultural industry.
+        <p>{t("desc")}</p>
         </p>
         <Link to="/upload-image" className="btn-link">
-          Get Started
+        <p>{t("start button")}</p>
         </Link>
       </div>
 
@@ -67,12 +68,10 @@ function Home() {
           />
         </div>
         <div className="body-info-text">
-          <h1>Impact on Economy ...</h1>
+          {/* <h1>Impact on Economy ...</h1> */}
+          <h1>{t("description.line1.title")}</h1>
           <p>
-            The agricultural sector in India and worldwide incurs annual losses
-            of $12 billion and $220 billion, respectively. This leads to
-            increment in price of the crops and also the farmers are not able to
-            get the desired profit.
+          {t("description.line1.descr")}
           </p>
         </div>
       </div>
@@ -87,11 +86,9 @@ function Home() {
           />
         </div>
         <div className="body-info-text">
-          <h1>Impact on farmers ...</h1>
+        <h1>{t("description.line2.title")}</h1>
           <p>
-            Plant diseases also have a negative impact on farmers incomes and
-            livelihoods. These diseases can cause significant crop losses, which
-            can lead to food shortages
+          {t("description.line2.descr")}
           </p>
         </div>
       </div>
@@ -106,11 +103,10 @@ function Home() {
           />
         </div>
         <div className="body-info-text">
-          <h1>Revolutionizing Plant Health ...</h1>
+          <h1>{t("description.line3.title")}</h1>
           <p>
-            We leverage the power of machine learning to detect deformities and
-            diseases in plants. We are working towards a healthy future.
-          </p>
+          {t("description.line3.descr")}
+           </p>
         </div>
       </div>
 

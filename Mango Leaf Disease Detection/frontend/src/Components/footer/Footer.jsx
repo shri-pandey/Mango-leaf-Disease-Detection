@@ -11,7 +11,7 @@ function Footer() {
           <Link className='links' to="/contact">Contact</Link>
         </div>
         <hr />
-        <h5>Copyrights &#169; | 2023. All Rights Reserved </h5>
+        <h5>Copyrights &#169; | 2024. All Rights Reserved </h5>
       </div>
   )
 }
