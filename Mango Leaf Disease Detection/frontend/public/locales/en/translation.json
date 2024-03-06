@@ -1,0 +1,20 @@
+{
+    "greeting": "Hello, Welcome",
+    "desc": "Welcome to our innovative agricultural website! We are revolutionizing the way farmers and agricultural professionals diagnose plant diseases by utilizing the power of machine learning. Our advanced ML model can detect the disease present in plants with just the image of an infected leaf, making it easier and faster for you to identify and treat the problem. With our technology, we aim to improve crop health and increase yields, ultimately contributing to a more sustainable and prosperous agricultural industry" ,
+    "start button": "Get Started",
+    "description": {
+        "line1": {
+            "title": "Impact on Economy ...",
+            "descr": " The agricultural sector in India and worldwide incurs annual losses of $12 billion and $220 billion, respectively. This leads to increment in price of the crops and also the farmers are not able to get the desired profit."
+        },
+        "line2": {
+            "title": "Impact on farmers ...",
+            "descr": "Plant diseases also have a negative impact on farmers incomes and livelihoods. These diseases can cause significant crop losses, which can lead to food shortages"
+        },
+        "line3": {
+            "title": "Revolutionizing Plant Health ...",
+            "descr": " We leverage the power of machine learning to detect deformities and diseases in plants. We are working towards a healthy future."
+        }
+        
+    }
+  }
