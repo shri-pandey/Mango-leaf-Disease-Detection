@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './App.css'
 import Navbar from './Components/Navbar/Navbar';
 import Body from './Components/Body/Body';
@@ -11,6 +11,7 @@ import Footer from "./Components/footer/Footer"
 import useLocalStorage from 'use-local-storage';
 import { drawerContext } from './Components/Context/Drawer';
 import LocationPermission from './Components/LocationPicker/LocationPermission';
+import Weather from './Components/weather/weather';
 // import { useState } from 'react';
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
   const location = useLocation();
   const [theme , setTheme] = useLocalStorage("dark");
   const [permission, setPermission] = useState(null);
-
+   // weather 
+   const climatedata = useContext(drawerContext);
+   const { setweatherdata, weatherData } = climatedata;
 
   const change = (bool) =>{
     if(bool === true){
@@ -56,6 +59,7 @@ function App() {
             <div className={leftmenu && "light-bg"}>
               <Routes location={location} key={location.key}>
                 <Route path='/' element={<Home/>} />
+                <Route path='weather' element={<Weather weatherData={weatherData}/>} />
                 <Route path='/upload-image' element={<Body />} />
                 <Route path='/contact' element={<Contact />} />
               </Routes>

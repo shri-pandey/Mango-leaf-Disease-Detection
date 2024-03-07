@@ -8,6 +8,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import {Trans, useTranslation} from "react-i18next";
+import { Typewriter } from 'react-simple-typewriter'
 
 function Home() {
 
@@ -49,9 +50,11 @@ function Home() {
       <div className="home-info">
         <h1 id="simple_arc" className="textomimage">
            <p>{t("greeting")}</p>
+          
         </h1>
         <p className="textomimage2">
-        <p>{t("desc")}</p>
+        <p></p>
+        <p><Typewriter words={[`${t("desc")}`]} typeSpeed={70}  delaySpeed={1000}/></p>
         </p>
         <Link to="/upload-image" className="btn-link">
         <p>{t("start button")}</p>
@@ -70,8 +73,9 @@ function Home() {
         <div className="body-info-text">
           {/* <h1>Impact on Economy ...</h1> */}
           <h1>{t("description.line1.title")}</h1>
+          
           <p>
-          {t("description.line1.descr")}
+          {/* {t("description.line1.descr")} */}
           </p>
         </div>
       </div>

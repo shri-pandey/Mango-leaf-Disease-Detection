@@ -8,15 +8,22 @@ const LocationPermission = ({ onPermissionChange }) => {
     const {i18n} = useTranslation();
   const [permission, setPermission] = useState(null);
   const [state, setState] =useState();
+  const wdata = useContext(drawerContext)
+  const { setweatherdata, weatherData } = wdata;
+  const apiKey = '38f4629dff754add93a122256240603 ';
+
  
 
+  console.log("climatedata at location permission jsx", wdata);
 
   const askPermission = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setPermission('granted');
-          getLocationInfo(position.coords.latitude, position.coords.longitude)
+          
+         var city = getLocationInfo(position.coords.latitude, position.coords.longitude)
+         fetchWeatherData(city)
           onPermissionChange('granted');
           // Do something with the user's location data if needed
           console.log('Latitude: position of mine', position.coords.latitude);
@@ -56,6 +63,7 @@ function getLocationInfo(latitude, longitude) {
           
           setState(data.results[0].components.state_code.toLowerCase())
           changeLanguage(data.results[0].components.state_code.toLowerCase())
+          fetchWeatherData(data.results[0].components.city)
           console.log("new state", state);
         //   setfunc(data.results[0].components.state_code)
         } else {
@@ -65,7 +73,17 @@ function getLocationInfo(latitude, longitude) {
       .catch((error) => console.error(error));
   }
 
-
+// get weather 
+async function fetchWeatherData(city) {
+  try {
+    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?q=${city}&days=5&key=${apiKey}`);
+    const data = await response.json();
+    console.log("weather data",data)
+    setweatherdata(data);
+  } catch (error) {
+    console.error('Error fetching weather data:', error);
+  }
+}
   return (
     <div className="LocationPermission-modal">
       <div className="LocationPermission-modal-content">

@@ -172,3 +172,20 @@
         width: 10%;
     }
 }
+
+
+.weatherButtonContainer{
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+.weatherbuttontext{
+    text-decoration: none;
+    color: white;
+}
+.weather-button{
+    text-decoration: none;
+}

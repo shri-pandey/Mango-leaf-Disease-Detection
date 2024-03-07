@@ -2,6 +2,7 @@
   "dependencies": {
     "i18n-backend": "^0.1.13",
     "i18next": "^23.10.0",
-    "react-i18next": "^14.0.5"
+    "react-i18next": "^14.0.5",
+    "react-simple-typewriter": "^5.0.1"
   }
 }
